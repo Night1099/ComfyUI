@@ -1,7 +1,3 @@
-import hashlib
-
-from comfy.cli_args import args
-
 from PIL import ImageFile, UnidentifiedImageError
 
 def conditioning_set_values(conditioning, values={}):
@@ -25,13 +21,4 @@ def pillow(fn, arg):
     finally:
         if prev_value is not None:
             ImageFile.LOAD_TRUNCATED_IMAGES = prev_value
-    return x
-
-def hasher():
-    hashfuncs = {
-        "md5": hashlib.md5,
-        "sha1": hashlib.sha1,
-        "sha256": hashlib.sha256,
-        "sha512": hashlib.sha512
-    }
-    return hashfuncs[args.default_hashing_function]
+        return x
